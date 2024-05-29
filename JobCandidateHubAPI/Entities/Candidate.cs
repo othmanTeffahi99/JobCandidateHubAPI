@@ -1,8 +1,10 @@
-﻿namespace JobCandidateHubAPI.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace JobCandidateHubAPI.Entities;
 
 public class Candidate
 {
- 
+        [Key]
         public required string Email { get; set; }
 
         public required string FirstName { get; set; }

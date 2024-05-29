@@ -1,6 +1,8 @@
-﻿namespace JobCandidateHubAPI.Services;
+﻿using JobCandidateHubAPI.Entities;
 
-public interface ICandidateRepository
+namespace JobCandidateHubAPI.Services;
+
+public interface ICandidateRepository : IRepository<Candidate>
 {
-    
+    Task<Candidate?> GetByEmailAsync(string email, CancellationToken cancellationToken = default);
 }

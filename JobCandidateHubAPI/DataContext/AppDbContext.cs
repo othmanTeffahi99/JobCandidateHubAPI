@@ -10,5 +10,6 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Candidate> Candidates { get; set; } = null!;
-    
+
+
 }

@@ -1,6 +1,8 @@
 using System.Reflection;
+using JobCandidateHubAPI.Commons.DataBase;
 using JobCandidateHubAPI.Commons.ExceptionHandler;
 using JobCandidateHubAPI.DataContext;
+using JobCandidateHubAPI.EndPoints;
 using JobCandidateHubAPI.Repositories;
 using JobCandidateHubAPI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -39,9 +41,9 @@ app.UseExceptionHandler();
 app.UseSerilogRequestLogging();
 app.UseHttpsRedirection();
 
+app.MapCandidateEndPoints();
 
 
-
-
+SeedData.PrepareSeedData(app);
 app.Run();
 
