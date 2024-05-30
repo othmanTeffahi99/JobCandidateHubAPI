@@ -55,6 +55,6 @@ public static class CandidateEndPoints
                 return Results.Ok(mapper.Map<CandidateReadDto>(candidate));
             }
             
-        }).Produces<CandidateReadDto>().CacheOutput().WithName("CreateCandidate");
+        }).Produces<CandidateReadDto>().CacheOutput().WithName("CreateOrUpdateCandidate");
     }
 }
