@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using FluentValidation;
+using FluentValidation.Results;
 using JobCandidateHubAPI.Dtos;
 using JobCandidateHubAPI.Entities;
 using JobCandidateHubAPI.Repositories;
@@ -20,10 +22,18 @@ public static class CandidateEndPoints
 
         }).CacheOutput().WithName("GetAllCandidates");
         
-        app.MapPost("/", async (CandidateReadOrUpdateDto candidateDto, ICandidateRepository repository, IUnitOfWork unitOfWork ,IMapper mapper, Serilog.ILogger logger) =>
+        app.MapPost("/", async (CandidateReadOrUpdateDto candidateDto, IValidator<Candidate>  validator,ICandidateRepository repository, IUnitOfWork unitOfWork ,IMapper mapper, Serilog.ILogger logger) =>
         {
             
             var candidate = mapper.Map<Candidate>(candidateDto);
+            
+            ValidationResult validationResult = await validator.ValidateAsync(candidate);
+
+            if (!validationResult.IsValid) 
+            {
+                return Results.ValidationProblem(validationResult.ToDictionary());
+            }
+
             
             var cdtEntity =   await repository.GetByEmailAsync(candidate.Email);
             

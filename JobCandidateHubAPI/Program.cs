@@ -1,8 +1,11 @@
 using System.Reflection;
+using FluentValidation;
 using JobCandidateHubAPI.Commons.DataBase;
 using JobCandidateHubAPI.Commons.ExceptionHandler;
+using JobCandidateHubAPI.Commons.Validations;
 using JobCandidateHubAPI.DataContext;
 using JobCandidateHubAPI.EndPoints;
+using JobCandidateHubAPI.Entities;
 using JobCandidateHubAPI.Repositories;
 using JobCandidateHubAPI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +24,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 	opt.EnableSensitiveDataLogging(builder.Environment.IsDevelopment());
 });
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddScoped<IValidator<Candidate>, CandidateValidator>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
