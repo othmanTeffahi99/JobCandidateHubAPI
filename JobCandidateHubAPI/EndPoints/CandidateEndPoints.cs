@@ -31,6 +31,7 @@ public static class CandidateEndPoints
 
             if (!validationResult.IsValid) 
             {
+                logger.Warning("Validation failed.");
                 return Results.ValidationProblem(validationResult.ToDictionary());
             }
 
