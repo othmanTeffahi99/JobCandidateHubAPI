@@ -9,6 +9,6 @@ public class CandidateRepository(AppDbContext appDbContext) : RepositoryBase<Can
 {
     public Task<Candidate?> GetByEmailAsync(string email, CancellationToken cancellationToken = default)
     {
-        return appDbContext.Candidates.FirstOrDefaultAsync(c => c.Email == email, cancellationToken);
+        return appDbContext.Candidates.FirstOrDefaultAsync(c => c.Email.Equals(email), cancellationToken);
     }
 }

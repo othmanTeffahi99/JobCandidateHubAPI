@@ -5,6 +5,12 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobCandidateHubAPI", "JobCandidateHubAPI\JobCandidateHubAPI.csproj", "{5241D1A3-9254-4455-8748-1EBF1F60CB5C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.API", "01.API", "{8BE0D9C1-94E7-4066-B861-71AD0B06F8F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03.Test", "03.Test", "{882724BA-0A4A-44D1-8380-001E883931E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobCandidateHubApiTest", "JobCandidateHubApiTest\JobCandidateHubApiTest.csproj", "{4FFE1FED-E005-488E-9310-E2398DD8E700}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,11 +21,19 @@ Global
 		{5241D1A3-9254-4455-8748-1EBF1F60CB5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5241D1A3-9254-4455-8748-1EBF1F60CB5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5241D1A3-9254-4455-8748-1EBF1F60CB5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FFE1FED-E005-488E-9310-E2398DD8E700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FFE1FED-E005-488E-9310-E2398DD8E700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FFE1FED-E005-488E-9310-E2398DD8E700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FFE1FED-E005-488E-9310-E2398DD8E700}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1EF29209-759A-41AB-903F-599AA8A8CE43}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5241D1A3-9254-4455-8748-1EBF1F60CB5C} = {8BE0D9C1-94E7-4066-B861-71AD0B06F8F1}
+		{4FFE1FED-E005-488E-9310-E2398DD8E700} = {882724BA-0A4A-44D1-8380-001E883931E3}
 	EndGlobalSection
 EndGlobal
