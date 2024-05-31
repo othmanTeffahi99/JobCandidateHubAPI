@@ -3,9 +3,9 @@ using FluentValidation;
 using FluentValidation.Results;
 using JobCandidateHubAPI.Dtos;
 using JobCandidateHubAPI.Entities;
-using JobCandidateHubAPI.Repositories;
+
 using JobCandidateHubAPI.Services;
-using ILogger = Serilog.ILogger;
+
 
 namespace JobCandidateHubAPI.EndPoints;
 
@@ -36,11 +36,12 @@ public static class CandidateEndPoints
         IValidator<Candidate> validator, ICandidateRepository repository, IUnitOfWork unitOfWork, IMapper mapper,
         Serilog.ILogger logger)
     {
+     
         var candidate = mapper.Map<Candidate>(candidateDto);
             
         ValidationResult validationResult = await validator.ValidateAsync(candidate);
 
-        if (!validationResult.IsValid) 
+        if (validationResult.IsValid is false) 
         {
             logger.Warning("Validation failed.");
             return Results.ValidationProblem(validationResult.ToDictionary());

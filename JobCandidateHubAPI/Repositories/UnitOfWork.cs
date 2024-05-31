@@ -5,7 +5,7 @@ namespace JobCandidateHubAPI.Repositories;
 
 public class UnitOfWork(AppDbContext appDbContext) : IUnitOfWork
 {
-    private bool _disposed = false;
+    private bool _disposed;
 
 
     public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

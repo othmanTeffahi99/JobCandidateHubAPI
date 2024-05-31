@@ -10,10 +10,10 @@ public class SeedData
         using var serviceScope = app.ApplicationServices.CreateScope();
         var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
         var logger = serviceScope.ServiceProvider.GetService<Serilog.ILogger>();
-        logger.Debug("SeedData.PrepareSeedData called.");
+        logger?.Debug("SeedData.PrepareSeedData called.");
         if (context is null)
         {
-            logger.Error("AppDbContext is null");
+            logger?.Error("AppDbContext is null");
             throw new NullReferenceException("AppDbContext is null");
         }
 
@@ -55,7 +55,7 @@ public class SeedData
                 });
         }
        
-        logger.Information("Seeding data.");
+        logger?.Information("Seeding data.");
         context.SaveChanges();
     }
 }
